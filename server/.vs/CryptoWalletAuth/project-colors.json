@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1edafc17-2952-49fd-901d-916e5ebfc1c3": {
+      "ProjectGuid": "1edafc17-2952-49fd-901d-916e5ebfc1c3",
+      "DisplayName": "CryptoWalletAuth",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

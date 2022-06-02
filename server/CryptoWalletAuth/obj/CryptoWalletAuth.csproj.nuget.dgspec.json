@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth\\CryptoWalletAuth.csproj": {}
+    "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth.csproj": {}
   },
   "projects": {
-    "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth\\CryptoWalletAuth.csproj": {
+    "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth\\CryptoWalletAuth.csproj",
+        "projectUniqueName": "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth.csproj",
         "projectName": "CryptoWalletAuth",
-        "projectPath": "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth\\CryptoWalletAuth.csproj",
+        "projectPath": "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth.csproj",
         "packagesPath": "C:\\Users\\Mohsen\\.nuget\\packages\\",
-        "outputPath": "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\CryptoWalletAuth\\obj\\",
+        "outputPath": "E:\\Document\\8-Learning\\BlockChain\\NFT\\Source\\CryptoWalletAuthentication\\server\\CryptoWalletAuth\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -45,6 +45,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

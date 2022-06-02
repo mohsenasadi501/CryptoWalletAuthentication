@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "aYkTh/4s2iTzzJHqLyrlWIMBE3fg1cIaOzjbDHqLRvc=",
+  "Source": "CryptoWalletAuth",
+  "BasePath": "_content/CryptoWalletAuth",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

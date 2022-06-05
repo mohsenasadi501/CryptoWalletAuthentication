@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CryptoWalletAuth
+namespace CryptoWalletAuth.Models.DataModel
 {
-    public class User
+    public class UserRole
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string? PublicAddress { get; set; }
-        public Int64 Nonce { get; set; }
+        public int UserId { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-# CyptoWallet Authentication and Autorization With JWT AccessToken & RefreshToken 
+# CyptoWallet Authentication and Autorization  
 
 **Serverside**: ASP.Net Core API
 
@@ -79,5 +79,5 @@ This project is licensed under the MIT License
 ## Acknowledgments
 
 * Storing data in SQL
-* GraphQL Query, Mutation, Subscription Example
-* Apollo Client
+* JWT AccessToken & RefreshToken
+* Reactjs

@@ -7,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
+string AllowedOrigin = "allowedOrigin";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
@@ -69,6 +71,11 @@ builder.Services
                     ValidateIssuerSigningKey = true,
                 };
             });
+// CORS
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy(AllowedOrigin, builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -81,5 +88,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors(AllowedOrigin);
 app.MapControllers();
 app.Run();

@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import axios from "axios";
 
 function App() {
+  const baseURL = "https://localhost:7061/User/nonce";
+  const [nonce, setNonce] = React.useState("");
+
+  function getNonnce() {
+    axios
+      .get(baseURL, {
+        params: { publicAddress: "0x174A639d18a2EE6590ed1A201F8CCC76A52FFB13" },
+      })
+      .then((response) => {
+        console.log(response)
+        setNonce(response.data);
+      });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <br></br>
+          <button type="button" className="btn btn-primary" onClick={getNonnce}>
+            Get Nonce
+          </button>
+          <input type="text" value={nonce}></input>
+        </div>
+        <div className="col"></div>
+        <div className="col"></div>
+      </div>
     </div>
   );
 }

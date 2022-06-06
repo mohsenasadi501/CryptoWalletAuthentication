@@ -20,6 +20,7 @@ For running this project you need the following items to Installed on your local
 
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/download) - IDE
 * [NPM](https://nodejs.org/en/download/) - Package Manager
+* [MetaMask](https://metamask.io/) - Metamask Browser Extension for Signing Message
 
 
 ### Serverside Installing

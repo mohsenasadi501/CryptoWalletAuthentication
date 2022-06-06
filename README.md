@@ -80,4 +80,5 @@ This project is licensed under the MIT License
 
 * Storing data in SQL
 * JWT AccessToken & RefreshToken
-* Reactjs
+* Reactjs - web3 - etherjs
+* Nethereum

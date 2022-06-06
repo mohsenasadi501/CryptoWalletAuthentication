@@ -8,13 +8,27 @@ function App() {
   const baseURL = "https://localhost:7061/";
   const [nonce, setNonce] = React.useState("");
   const [token, setToken] = React.useState("");
-  const [account, setAccount] = React.useState();
+  const [account, setAccount] = React.useState("");
+  const [network, setNetwork] = React.useState("");
+  const [chainId, setChainId] = React.useState(0);
+  const [signature, setSignature] = React.useState("");
 
   async function connect() {
-    const web3Modal = new Web3Modal();
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
+    if (typeof window !== "undefined") {
+      const web3Modal = new Web3Modal();
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      const signer = provider.getSigner();
+      const address = await signer.getAddress();
+      const networkData = await provider.getNetwork();
+      console.log(nonce)
+      let mySignature = await signer.signMessage(nonce.toString());
+
+      setSignature(mySignature);
+      setAccount(address);
+      setNetwork(networkData.name);
+      setChainId(networkData.chainId);
+    }
   }
   function getNonnce() {
     let uri = baseURL + "User/nonce";
@@ -31,7 +45,7 @@ function App() {
     let uri = baseURL + "User/authenticate";
     const json = JSON.stringify({
       publicAddress: "0x174A639d18a2EE6590ed1A201F8CCC76A52FFB13",
-      signature: nonce.toString(),
+      signature: signature,
     });
     axios
       .post(uri, json, {
@@ -60,7 +74,6 @@ function App() {
               Get Nonce
             </button>
             <input type="text" value={nonce}></input>
-            <br></br>
           </div>
           <div className="input-group mb-3">
             <button type="button" className="btn btn-primary" onClick={login}>
@@ -69,13 +82,20 @@ function App() {
             <input type="text" value={token}></input>
           </div>
         </div>
-        <div className="col"></div>
-        <div className="input-group mb-3">
+        <div className="col">
+          <br></br>
+          <div className="input-group mb-3">
             <button type="button" className="btn btn-primary" onClick={connect}>
               Connect to MetaMask
             </button>
           </div>
-        <div className="col"></div>
+          <p>Address:</p>
+          <p>{account}</p>
+          <p>Network Name:</p>
+          <p>{network}</p>
+          <p>ChainId:</p>
+          <p>{chainId}</p>
+        </div>
       </div>
     </div>
   );

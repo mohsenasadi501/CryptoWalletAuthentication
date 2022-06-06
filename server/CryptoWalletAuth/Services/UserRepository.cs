@@ -1,7 +1,9 @@
 ﻿using CryptoWalletAuth.Models;
 using CryptoWalletAuth.Models.DataModel;
+using CryptoWalletAuth.Utility;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Nethereum.Signer;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -34,7 +36,7 @@ namespace CryptoWalletAuth.Services
             if (user == null)
                 return new AuthenticateResponse(Message, "", "");
 
-            if (!ValidateSignature(loginInput.Signature, user.Nonce))
+            if (!ValidateSignature(loginInput.Signature, user.Nonce, loginInput.PublicAddress))
                 return new AuthenticateResponse(Message, "", "");
 
             var roles = _userRoleRepository.GetRoleById(user.Id);
@@ -99,9 +101,13 @@ namespace CryptoWalletAuth.Services
             return number;
         }
 
-        private bool ValidateSignature(string signature, long nonce)
+        private bool ValidateSignature(string signature, long nonce, string publicAddress)
         {
-            return true;
+            var address = Utilities.GetAddress(signature, nonce.ToString());
+            if (publicAddress == address)
+                return true;
+            else
+                return false;
         }
         private string GenerateToken(User user, IList<UserRole> roles)
         {
